@@ -14,4 +14,8 @@ public interface  LivreRepository extends JpaRepository<Livre, Integer>{
 
     @Query("SELECT DISTINCT l FROM Livre l LEFT JOIN FETCH l.genres")
     List<Livre> findAllWithGenres();
+
+    @Query("SELECT l FROM Livre l LEFT JOIN FETCH l.exemplaires WHERE l.id = :id")
+    Livre findByIdWithExemplaires(@Param("id") Integer id);
+
 }

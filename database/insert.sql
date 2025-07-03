@@ -92,3 +92,25 @@ INSERT INTO livre_genre (id_livre, id_genre) VALUES (9, 6);
 -- Livre 10 : Roman (1)
 INSERT INTO livre_genre (id_livre, id_genre) VALUES (10, 1);
 
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-01-10', 1);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-01-12', 1);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-02-01', 2);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-02-05', 2);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-03-15', 3);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-03-20', 3);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-04-10', 4);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-04-15', 5);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-05-01', 5);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-05-03', 5);
+
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-01-10', 6);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-01-12', 6);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-02-01', 7);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-02-05', 7);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-03-15', 8);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-03-20', 8);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-04-10', 9);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-04-15', 10);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-05-01', 10);
+INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-05-03', 10);
+

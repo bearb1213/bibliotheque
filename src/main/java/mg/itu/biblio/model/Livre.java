@@ -18,7 +18,7 @@ public class Livre {
     
     @Column(name = "titre")
     private String titre;
-    
+
     @Column(name = "synopsis")
     private String synopsis;
     
@@ -35,7 +35,7 @@ public class Livre {
     @JoinColumn(name = "id_auteur")
     private Auteur auteur;
     
-    
+        
     @ManyToMany
     @JoinTable(
         name = "livre_genre",
@@ -43,5 +43,8 @@ public class Livre {
         inverseJoinColumns = @JoinColumn(name = "id_genre")
     )
     private List<Genre> genres;
+
+    @OneToMany(mappedBy = "livre", cascade = CascadeType.ALL, orphanRemoval = true , fetch=FetchType.LAZY)
+    private List<Exemplaire> exemplaires;
 
 }

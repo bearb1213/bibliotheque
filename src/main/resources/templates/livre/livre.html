@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exemplaires du Livre</title>
+</head>
+<body>
+    <h1>Exemplaires de "<span th:text="${livre.titre}">Titre</span>"</h1>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date d'arrivée</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="exemplaire : ${livre.exemplaires}">
+                <td th:text="${exemplaire.id}">1</td>
+                <td th:text="${exemplaire.dateArrive}">2024-01-01</td>
+                <td>
+                    <a th:if="${utilisateurType == 1}"
+                    th:href="@{'/reservation/' + ${exemplaire.id} + '/' + ${utilisateurId}}">Réserver</a>
+
+                    <a th:if="${utilisateurType == 2}"
+                    th:href="@{'/pret/' + ${exemplaire.id}}">Prêter</a>
+
+                    <span th:unless="${utilisateurType == 1 or utilisateurType == 2}">Connecter Vous d'abord</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a th:href="@{/}">Retour au catalogue</a>
+</body>
+</html>

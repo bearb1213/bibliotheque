@@ -16,6 +16,7 @@ public class LivreService {
         return livreRepository.findAllWithGenres();
     }
     public Livre getById(Integer id){
-        return livreRepository.findByIdWithGenres(id);
+        return livreRepository.findByIdWithExemplaires(id);
     }
+
 }
