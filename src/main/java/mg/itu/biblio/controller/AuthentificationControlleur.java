@@ -29,19 +29,25 @@ public class AuthentificationControlleur {
                         HttpSession session,
                         Model model 
     ){
+        try{
 
-        Utilisateur utilisateur = authentificationService.findUtilisateur(email, mdp);
-        if (email.isEmpty() || mdp.isEmpty()){
-            model.addAttribute("message", "Email ou mot de passe incomplet.");
-            return "utilisateur/login";
-        }
-        if (utilisateur != null) {
-            session.setAttribute("utilisateurId", utilisateur.getId());
-            session.setAttribute("utilisateurType" , utilisateur.getUtilisateurType().getId()); 
-            return "redirect:/accueil";
-        } else {
-            model.addAttribute("message", "Email ou mot de passe incorrect.");
-            return "utilisateur/login";
+            Utilisateur utilisateur = authentificationService.findUtilisateur(email, mdp);
+            if (email.isEmpty() || mdp.isEmpty()){
+                model.addAttribute("message", "Email ou mot de passe incomplet.");
+                return "utilisateur/login";
+            }
+            if (utilisateur != null) {
+                session.setAttribute("utilisateurId", utilisateur.getId());
+                session.setAttribute("utilisateurType" , utilisateur.getUtilisateurType().getId()); 
+                return "redirect:/accueil";
+            } else {
+                model.addAttribute("message", "Email ou mot de passe incorrect.");
+                return "utilisateur/login";
+            }
+            
+        } catch (Exception e){
+            model.addAttribute("message", e.getMessage());
+            return "utilisateur/login" ;            
         }
     }   
 
@@ -60,6 +66,11 @@ public class AuthentificationControlleur {
             model.addAttribute("message", "Email ou mot de passe incomplet.");
             return "utilisateur/sign";
         } 
+        Utilisateur userTest = authentificationService.findUtilisateur(email);
+        if (userTest!=null){
+            model.addAttribute("message", "Email Deja utiliser");
+            return "utilisateur/sign";
+        }
         Utilisateur utilisateur = new Utilisateur(null, nom, email, mdp,authentificationService.getTypeById(1) );
         authentificationService.createUtilisateur(utilisateur);
         return "redirect:/sign/in"; 
