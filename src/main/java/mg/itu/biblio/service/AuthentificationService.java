@@ -30,5 +30,9 @@ public class AuthentificationService {
     public Utilisateur findUtilisateur(String email,String mdp){
         return utilisateurRepository.findByEmailAndMotDePasse(email, mdp);
     }
+    public Utilisateur findUtilisateur(String email){
+        return utilisateurRepository.findByEmail(email);
+    }
+    
 
 }
