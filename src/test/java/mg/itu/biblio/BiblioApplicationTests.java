@@ -1,10 +1,10 @@
-package mg.itu.spring;
+package mg.itu.biblio;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class BiblioApplicationTests {
 
 	@Test
 	void contextLoads() {
