@@ -61,3 +61,19 @@ CREATE TABLE exemplaire(
    FOREIGN KEY(id_livre) REFERENCES livre(id)
 );
 
+CREATE TABLE type_adhesion(
+   id SERIAL,
+   type VARCHAR(255),
+   PRIMARY KEY(id)
+);
+CREATE TABLE adhesion(
+   id SERIAL,
+   date_debut TIMESTAMP,
+   date_fin TIMESTAMP,
+   id_type INTEGER NOT NULL,
+   id_utilisateur INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_type) REFERENCES type_adhesion(id),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id)
+);
+

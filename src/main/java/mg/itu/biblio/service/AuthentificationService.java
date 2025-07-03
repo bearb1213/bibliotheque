@@ -1,6 +1,5 @@
 package mg.itu.biblio.service;
 
-
 import mg.itu.biblio.model.Utilisateur;
 import mg.itu.biblio.model.UtilisateurType;
 import mg.itu.biblio.repository.UtilisateurRepository;

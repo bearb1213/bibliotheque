@@ -28,5 +28,8 @@ public class Utilisateur {
     @JoinColumn(name ="id_type")
     private UtilisateurType utilisateurType;
 
+    @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, orphanRemoval = true , fetch=FetchType.LAZY)
+    private List<Adhesion> adhesions;
+
 
 }

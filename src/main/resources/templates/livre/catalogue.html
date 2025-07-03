@@ -26,6 +26,7 @@
 <body>
     <a href="sign">se connecter</a>
     <a href="sign/in">s'inscrire</a>
+    <a href="adhesion/">adhesion</a>
     <h1>Catalogue des Livres</h1>
 
     <table>
@@ -57,7 +58,7 @@
                     </ul>
                 </td>
                 <td >
-                    <a th:href="@{/{id}(id=${livre.id})}">Voir Exemplaire</a>
+                    <a th:href="@{/l/{id}(id=${livre.id})}">Voir Exemplaire</a>
                 </td>
             </tr>
         </tbody>

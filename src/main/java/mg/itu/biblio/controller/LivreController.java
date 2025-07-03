@@ -27,7 +27,7 @@ public class LivreController {
         return "livre/catalogue";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/l/{id}")
     public String livre(@PathVariable("id") String id, HttpSession session,Model model ){
         Livre livre = livreService.getById(Integer.parseInt(id));
         model.addAttribute("livre" , livre);

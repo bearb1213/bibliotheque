@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire d'adhésion</title>
+</head>
+<body>
+    <h1>Nouvelle Adhésion</h1>
+    <p th:text="${message}"></p>
+    <form th:action="@{/adhesion/enregistrer}" method="post">
+        <label>Email :</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Mot de passe :</label><br>
+        <input type="password" name="mdp" required><br><br>
+
+        <label>Durée (en mois) :</label><br>
+        <input type="number" name="nbMois" min="1" required><br><br>
+
+        <label>Type d'adhésion :</label><br>
+        <select name="idType" required>
+            <option th:each="type : ${typeAdhesions}" 
+                    th:value="${type.id}" 
+                    th:text="${type.type}">
+            </option>
+        </select><br><br>
+
+        <button type="submit">Valider</button>
+    </form>
+</body>
+</html>
