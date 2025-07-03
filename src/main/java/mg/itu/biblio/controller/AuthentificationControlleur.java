@@ -8,9 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 import mg.itu.biblio.model.Utilisateur;
+import mg.itu.biblio.model.Adhesion;
 import mg.itu.biblio.model.UtilisateurType;
 import mg.itu.biblio.service.AuthentificationService;
         
+import java.util.ArrayList;
 @Controller
 @RequestMapping("/sign")
 public class AuthentificationControlleur {
@@ -71,7 +73,7 @@ public class AuthentificationControlleur {
             model.addAttribute("message", "Email Deja utiliser");
             return "utilisateur/sign";
         }
-        Utilisateur utilisateur = new Utilisateur(null, nom, email, mdp,authentificationService.getTypeById(1) );
+        Utilisateur utilisateur = new Utilisateur(null, nom, email, mdp,authentificationService.getTypeById(1),new ArrayList<Adhesion>() );
         authentificationService.createUtilisateur(utilisateur);
         return "redirect:/sign/in"; 
     }
