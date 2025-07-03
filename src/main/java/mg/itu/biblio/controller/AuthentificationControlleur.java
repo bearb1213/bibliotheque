@@ -56,7 +56,7 @@ public class AuthentificationControlleur {
                         @RequestParam("mdp") String mdp,
                         Model model
                         ) {
-        if (email.isEmpty() || mdp.isEmpty()){
+        if (email.isEmpty() || mdp.isEmpty() || nom.isEmpty()){
             model.addAttribute("message", "Email ou mot de passe incomplet.");
             return "utilisateur/sign";
         } 

@@ -20,5 +20,44 @@ CREATE TABLE utilisateur(
    FOREIGN KEY(id_type) REFERENCES utilisateur_type(id)
 );
 
-INSERT INTO utilisateur(nom,email,mot_de_passe,id_type) VALUES
-    ('bibliothecaire' , 'biblio@gmail.com' , 'biblio' , 2);
+CREATE TABLE auteur(
+   id SERIAL,
+   nom VARCHAR(255),
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE genre(
+   id SERIAL,
+   genre VARCHAR(255),
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE livre(
+   id SERIAL,
+   titre VARCHAR(255),
+   synopsis TEXT,
+   date_publication DATE,
+   page INTEGER,
+   age_lim INTEGER,
+   id_auteur INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_auteur) REFERENCES auteur(id)
+);
+
+CREATE TABLE livre_genre(
+   id SERIAL,
+   id_livre INTEGER NOT NULL,
+   id_genre INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_livre) REFERENCES livre(id),
+   FOREIGN KEY(id_genre) REFERENCES genre(id)
+);
+
+CREATE TABLE exemplaire(
+   id SERIAL,
+   date_arrive DATE,
+   id_livre INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_livre) REFERENCES livre(id)
+);
+

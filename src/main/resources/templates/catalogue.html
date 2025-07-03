@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalogue des Livres</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Catalogue des Livres</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titre</th>
+                <th>Synopsis</th>
+                <th>Date de publication</th>
+                <th>Pages</th>
+                <th>Âge minimum</th>
+                <th>Auteur</th>
+                <th>Genres</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="livre : ${livres}">
+                <td th:text="${livre.id}">1</td>
+                <td th:text="${livre.titre}">Titre</td>
+                <td th:text="${livre.synopsis}">Synopsis</td>
+                <td th:text="${livre.datePublication}">2023-01-01</td>
+                <td th:text="${livre.page}">250</td>
+                <td th:text="${livre.ageLim}">12</td>
+                <td th:text="${livre.auteur.nom}">Nom Auteur</td>
+                <td>
+                    <ul>
+                        <li th:each="genre : ${livre.genres}" th:text="${genre.genre}">Genre</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
