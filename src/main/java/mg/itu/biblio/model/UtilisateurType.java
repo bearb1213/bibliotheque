@@ -16,5 +16,7 @@ public class UtilisateurType {
 
     @Column(name = "type")
     private String type;
+
+    
     
 }

@@ -39,7 +39,7 @@ public class AuthentificationControlleur {
             if (utilisateur != null) {
                 session.setAttribute("utilisateurId", utilisateur.getId());
                 session.setAttribute("utilisateurType" , utilisateur.getUtilisateurType().getId()); 
-                return "redirect:/accueil";
+                return "redirect:/";    
             } else {
                 model.addAttribute("message", "Email ou mot de passe incorrect.");
                 return "utilisateur/login";

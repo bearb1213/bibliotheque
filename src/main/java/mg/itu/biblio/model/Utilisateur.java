@@ -2,6 +2,7 @@ package mg.itu.biblio.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.util.List;
 
 
 @Entity
@@ -27,6 +28,5 @@ public class Utilisateur {
     @JoinColumn(name ="id_type")
     private UtilisateurType utilisateurType;
 
-    
 
 }
