@@ -131,3 +131,8 @@ insert into quota (action,quota,id_type) values
     ('prologement',1,1),
     ('prologement',1,2),
     ('prologement',1,3);
+
+insert into penalite_type (nbjour,id_type) VALUES (4,1) , (3,2) ,(2,3);
+INSERT INTO type_pret (type) VALUES ('sur place'),('A la maison');
+
+

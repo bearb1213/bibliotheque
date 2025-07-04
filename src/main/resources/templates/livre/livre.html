@@ -25,7 +25,7 @@
                     th:href="@{'/reserver/r/' + ${exemplaire.id}    }">Réserver</a>
 
                     <a th:if="${utilisateurType == 2}"
-                    th:href="@{'/pret/' + ${exemplaire.id}}">Prêter</a>
+                    th:href="@{'/pret/p/' + ${exemplaire.id}}">Prêter</a>
 
                     <span th:unless="${utilisateurType == 1 or utilisateurType == 2}">Connecter Vous d'abord</span>
                 </td>

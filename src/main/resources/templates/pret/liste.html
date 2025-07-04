@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des prêts</title>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+
+<h2>Liste des prêts</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID Exemplaire</th>
+            <th>Titre du livre</th>
+            <th>Nom de l'utilisateur</th>
+            <th>Type de prêt</th>
+            <th>Date début</th>
+            <th>Date retour prevue</th>
+            <th>action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="pret : ${prets}">
+            <td th:text="${pret.exemplaire.id}">ID exemplaire</td>
+            <td th:text="${pret.exemplaire.livre.titre}">Titre livre</td>
+            <td th:text="${pret.utilisateur.nom}">Nom utilisateur</td>
+            <td th:text="${pret.type.type}">Type prêt</td>
+            <td th:text="${pret.dateDebut}">Date début</td>
+            <td th:text="${pret.dateRetour}">Date retour</td>
+            <td>
+                <a th:href="@{'/pret/r/' + ${pret.id}}">Rendre</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
