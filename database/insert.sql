@@ -117,3 +117,17 @@ INSERT INTO exemplaire (date_arrive, id_livre) VALUES ('2023-05-03', 10);
 
 
 insert into type_adhesion(type) VALUES ('etudiant') , ('professionnel') ,('professeur' );
+
+
+insert into type_reservation(type) VALUES ('reservation') , ('prologement') ;
+
+insert into quota (action,quota,id_type) values 
+    ('reservation',2,1),
+    ('reservation',2,2),
+    ('reservation',2,3),
+    ('pret',3,1),
+    ('pret',3,2),
+    ('pret',3,3),
+    ('prologement',1,1),
+    ('prologement',1,2),
+    ('prologement',1,3);

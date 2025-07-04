@@ -77,3 +77,42 @@ CREATE TABLE adhesion(
    FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id)
 );
 
+CREATE TABLE action_type(
+   id SERIAL,
+   action VARCHAR(255),
+   PRIMARY KEY(id)
+);
+
+
+CREATE TABLE type_reservation(
+   id SERIAL,
+   type VARCHAR(255),
+   PRIMARY KEY(id)
+);
+
+CREATE TABLE quota(
+   id SERIAL,
+   quota INTEGER NOT NULL,
+   action VARCHAR(255),
+   id_type INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_type) REFERENCES type_adhesion(id)
+);
+
+CREATE TABLE reservation(
+   id SERIAL,
+   date_de_prise TIMESTAMP,
+   date_demande TIMESTAMP,
+   date_accept TIMESTAMP,
+   date_refus TIMESTAMP,
+   id_type INTEGER NOT NULL,
+   id_utilisateur INTEGER NOT NULL,
+   id_exemplaire INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_type) REFERENCES type_reservation(id),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id),
+   FOREIGN KEY(id_exemplaire) REFERENCES exemplaire(id)
+);
+
+
+

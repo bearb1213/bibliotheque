@@ -7,6 +7,7 @@
 <body>
     <h1>Exemplaires de "<span th:text="${livre.titre}">Titre</span>"</h1>
 
+    <p th:text="${message}"></p>
     <table border="1">
         <thead>
             <tr>
@@ -21,7 +22,7 @@
                 <td th:text="${exemplaire.dateArrive}">2024-01-01</td>
                 <td>
                     <a th:if="${utilisateurType == 1}"
-                    th:href="@{'/reservation/' + ${exemplaire.id} + '/' + ${utilisateurId}}">Réserver</a>
+                    th:href="@{'/reserver/r/' + ${exemplaire.id}    }">Réserver</a>
 
                     <a th:if="${utilisateurType == 2}"
                     th:href="@{'/pret/' + ${exemplaire.id}}">Prêter</a>

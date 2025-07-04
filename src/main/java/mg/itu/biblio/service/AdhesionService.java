@@ -33,6 +33,9 @@ public class AdhesionService {
         Utilisateur utilisateur = utilisateurRepository.findById(id).orElse(null);
         return adhesionRepository.findActiveByUtilisateurAndDate(utilisateur, date).orElse(null);
     }
+    public Adhesion getAdherent(Utilisateur utilisateur,LocalDate date){
+        return adhesionRepository.findActiveByUtilisateurAndDate(utilisateur, date).orElse(null);
+    }
 
     public Adhesion getLastAdhesion(Integer id){
         List<Adhesion> adhesions = adhesionRepository.findLastAdhesionByUtilisateurId(id,PageRequest.of(0, 1));
