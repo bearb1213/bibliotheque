@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>reservation</title>
+</head>
+<body>
+    <h1>reservation</h1>
+    <p th:text="${message}"></p>
+    <form th:action="@{/reserver/r}" method="post">
+        <input type="hidden" name="id" th:value="${id}" />
+        <div>
+            <label for="date">Date de prise prevu :</label>
+            <input type="date" id="date" name="date" required />
+        </div>
+
+        <div>
+            <button type="submit">Envoyer</button>
+        </div>
+    </form>
+</body>
+</html>

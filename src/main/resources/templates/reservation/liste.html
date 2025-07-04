@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des Réservations en Attente</title>
+</head>
+<body>
+<h1>Réservations en attente</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nom Utilisateur</th>
+        <th>Titre du Livre</th>
+        <th>Date de Demande</th>
+        <th>Date de Prise</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="res : ${reservations}">
+        <td th:text="${res.utilisateur.nom}">Nom</td>
+        <td th:text="${res.exemplaire.livre.titre}">Titre</td>
+        <td th:text="${res.dateDemande}">Date Demande</td>
+        <td th:text="${res.datePrise}">Date Prise</td>
+        <td>
+            <a th:href="@{'/reserver/accepter/' + ${res.id}}">Accepter</a> |
+            <a th:href="@{'/reserver/refuser/' + ${res.id}}">Refuser</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
