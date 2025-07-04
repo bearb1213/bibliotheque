@@ -2,6 +2,9 @@ package mg.itu.biblio.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 
@@ -31,5 +34,9 @@ public class Utilisateur {
     @OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL, orphanRemoval = true , fetch=FetchType.LAZY)
     private List<Adhesion> adhesions;
 
+    // public static int calculerAge(LocalDate dateNaissance) {
+    //     if (dateNaissance == null) return 0;
+    //     return Period.between(dateNaissance, LocalDate.now()).getYears();
+    // }
 
 }

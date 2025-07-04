@@ -116,3 +116,44 @@ CREATE TABLE reservation(
 
 
 
+
+CREATE TABLE type_pret(
+   id SERIAL,
+   type VARCHAR(255),
+   PRIMARY KEY(id)
+); 
+
+CREATE TABLE penalite_type(
+   id SERIAL,
+   nbjour INTEGER,
+   id_type INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_type) REFERENCES type_adhesion(id)
+);
+
+CREATE TABLE pret(
+   id SERIAL,
+   date_debut TIMESTAMP NOT NULL,
+   date_retour TIMESTAMP,
+   date_vretour TIMESTAMP,
+   id_type INTEGER NOT NULL,
+   id_utilisateur INTEGER NOT NULL,
+   id_exemplaire INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_type) REFERENCES type_pret(id),
+   FOREIGN KEY(id_exemplaire) REFERENCES exemplaire(id),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id)
+);
+
+
+CREATE TABLE penalite(
+   id SERIAL,
+   date_debut TIMESTAMP,
+   date_fin TIMESTAMP,
+   id_utilisateur INTEGER NOT NULL,
+   PRIMARY KEY(id),
+   FOREIGN KEY(id_utilisateur) REFERENCES utilisateur(id)
+);
+
+
+
